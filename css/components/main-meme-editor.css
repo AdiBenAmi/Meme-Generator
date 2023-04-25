@@ -1,0 +1,30 @@
+.text-user-input {
+    font-family: montserrat;
+    font-size: 1.25rem; /*20px*/
+    width: 373px;
+    height: 60px;
+    border-radius: 12px;
+    border: 1px solid var(--clr-1);
+}
+
+.btn {
+    height: 60px;
+    width: 60px;
+    background-color: var(--clr-1);
+    border-radius: 12px;
+    border: 2px solid var(--clr-1);
+}
+
+.select-font {
+    width: 218px;
+    height: 60px;
+    background-color: var(--clr-1);
+    border-radius: 12px;
+    border: 2px solid var(--clr-1);
+}
+
+.btn-align-text-left{
+    /*i need to continue with positioning img inside btn*/
+    background: var(--clr-1) url(/img/btn-img/align-to-left.png);
+    background-repeat: no-repeat;
+}

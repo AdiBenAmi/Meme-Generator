@@ -1,0 +1,24 @@
+:root{
+   
+    --clr2: #A7727D;
+    --clr1: #292929;
+    --clr0: #EDDBC7;
+    --clr-1:#F8EAD8;
+    --clr-2:#F9F5E7;
+    --clr-3: #ffffff;
+
+
+ /* Layout */
+ --site-width: 1102px;
+ --l: 1102px;
+ /* --m: 860px; */
+ /* --s: 600px; */
+ --layout-padding: 49px;
+
+/*Card layout*/
+/* --card-layout: 1fr 1fr; */
+/* --card-in-l: 1fr 1fr; */
+/* --card-in-m: 1fr 1fr; */
+/* --card-in-s: 1fr; */
+/* --card-in-mobile: 1fr;  */
+}

@@ -1,0 +1,9 @@
+.about-container {
+    background-color: var(--clr-2);
+}
+
+.about-container img{
+    border-radius: 50%;
+    width: 322px;
+    margin-block: 78px 167px;
+}

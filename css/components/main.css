@@ -1,0 +1,12 @@
+.img-grid-container img{
+    width: 200px;
+    border-radius: 5px;
+
+    transition: transform .3s, box-shadow .3s;
+}
+
+.img-grid-container img:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px 3px var(--clr-3);
+    transform: scale(1.05);
+}

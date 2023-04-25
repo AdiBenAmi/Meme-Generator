@@ -1,0 +1,30 @@
+/* MAIN LAYOUT */
+
+.main-layout {
+    display: grid;
+    grid-template-columns:
+    minmax(var(--layout-padding), 1fr)
+    minmax(auto, var(--site-width))
+    minmax(var(--layout-padding), 1fr);
+}
+
+.main-layout > :not(.full) {
+    grid-column: 2/ 3;
+} 
+ 
+ .main-layout > .full {
+    grid-column: 1 / -1;
+}
+
+/*GALLERY IMG LAYOUT*/
+.main-img-container {
+    background-color: var(--clr0);
+}
+
+.img-grid-container {
+    display: flex;
+    gap: 20px;
+    margin-block-start: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
