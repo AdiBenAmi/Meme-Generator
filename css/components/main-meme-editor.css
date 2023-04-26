@@ -1,30 +1,96 @@
+.main-meme-editor {
+    gap: 40px;
+    background-color: var(--clr0);
+
+}
+
+.editor-container {
+    background-color: var(--clr0);
+    
+    /* padding-block: 20px; */
+}
+
 .text-user-input {
     font-family: montserrat;
     font-size: 1.25rem; /*20px*/
-    width: 373px;
-    height: 60px;
+    padding-block: 0.5em;
+    height: 50px;
     border-radius: 12px;
     border: 1px solid var(--clr-1);
+
+    align-self: flex-end;
+
+
+}
+
+.btn-switch-lines {
+    background: url(/img/btn-img/up-and-down-opposite-double-arrows-side-by-side.png) no-repeat; 
+}
+
+.btn-add-line {
+    background: url(/img/btn-img/add.png) no-repeat; 
+}
+
+.btn-clear-canvas {
+    background: url(/img/btn-img/trash.png) no-repeat;
+}
+
+.btn-increase-font-size {
+    background: url(/img/btn-img/increase\ font\ -\ icon.png) no-repeat;
+}
+
+.btn-decrease-font-size {
+    background: url(/img/btn-img/decrease\ font\ -\ icon.png) no-repeat;
+}
+
+.btn-align-text-left {
+    background: url(/img/btn-img/align-to-left.png) no-repeat;
+}
+
+.btn-align-text-center {
+    background: url(/img/btn-img/center-text-alignment.png) no-repeat;
+}
+
+.btn-align-text-right {
+    background: url(/img/btn-img/align-to-right.png) no-repeat;
+}
+
+.btn-choose-stroke-clr {
+    background: url(/img/btn-img/text\ stroke.png) no-repeat;
+}
+
+.btn-choose-fill-clr {
+    background: url(/img/btn-img/paint-board-and-brush.png) no-repeat;
 }
 
 .btn {
     height: 60px;
     width: 60px;
-    background-color: var(--clr-1);
+    background-color: var(--clr-3);
     border-radius: 12px;
     border: 2px solid var(--clr-1);
-}
+    background-position: center;
+    margin-inline: 3px;
+} 
 
-.select-font {
-    width: 218px;
-    height: 60px;
-    background-color: var(--clr-1);
+.btn-download,
+.btn-share {
+    font-family: montserrat;
+    font-size: 1.25rem; /*20px*/
+    padding: 6px 6px;
+    width: 150px;
     border-radius: 12px;
-    border: 2px solid var(--clr-1);
+    border: 1px solid var(--clr-1);
+    background-color: white;
 }
 
-.btn-align-text-left{
-    /*i need to continue with positioning img inside btn*/
-    background: var(--clr-1) url(/img/btn-img/align-to-left.png);
-    background-repeat: no-repeat;
+.select-font-container {
+    font-family: montserrat;
+    font-size: 1.25rem; 
+    padding: 0.5em 1em;
+    width: 180px;
+    border-radius: 12px;
+    border: 1px solid var(--clr-1);
 }
+
+

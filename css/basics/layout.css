@@ -28,3 +28,21 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+/*EDITOR CONTAINER LAYOUT*/
+
+.main-meme-editor {
+display: grid;
+grid-template-columns:
+minmax(var(--layout-padding), 1fr)
+minmax(auto, 551px)
+minmax(auto, 551px)
+minmax(var(--layout-padding), 1fr);
+}
+
+.editor-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    gap:10px;
+}

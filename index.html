@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MemeGen</title>
+    <title>Adi BEN AMI MemeGen</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="main-layout">
+<body onload="onInit()" class="main-layout">
     <header class="main-header main-layout full">
         <section class="flex space-between align-center">
             <div class="logo">
@@ -69,58 +69,55 @@
     </section>
 
 
-  
-
 <!-- EDITOR SECTION -->
-    <section class=" main-meme-editor flex">
+    <section class="main-meme-editor full">
+        <div class=""></div>
         <div class="canvas-container">
-            <canvas width="500" height="500" id="my-canvas" style="background-color: black;"></canvas>
+            <canvas width="500" height="500" id="my-canvas" style="background-color: black;" onclick="draw(event)"></canvas>
         </div>
 
         <div class="editor-container">
-            <input class="text-user-input" type="text" name="text" placeholder="Enter search keyword" oninput="onSetText(this)">
-            <button class="btn btn-switch-lines"></button>
-            <button class="btn add-line"></button>
-            <button class=" btn clear-canvas"></button>
-
-            <button class="btn btn-increase-font-size"></button>
-            <button class="btn btn-decrease-font-size"></button>
-            <button class="btn btn-align-text-left"></button>
-            <button class="btn btn-align-text-center"></button>
-            <button class="btn btn-align-text-right"></button>
-            <select class="select-font" id="font-family" onchange="onSetFontFamily(event.target.value)" name="font-family">
-                <option value="impact">Impact</option>
-                <option value="arial">Arial</option>
-            </select>
-            <button class="btn btn-choose-stroke-clr"></button>
-            <button class="btn btn-choose-fill-clr"></button>
+            <input oninput="onSetText(this)" data-trans="text" class="text-user-input" type="text" name="text" placeholder="Enter search keyword" oninput="onSetText(this)">
+            <div>
+                <button class="btn btn-switch-lines"></button>
+                <button class="btn btn-add-line"></i></i></button>
+                <button class=" btn btn-clear-canvas" onclick="clearCanvas()"></button>
+            </div>
+            <div>
+                <button class="btn btn-increase-font-size"></button>
+                <button class="btn btn-decrease-font-size"></button>
+                <button class="btn btn-align-text-left"></button>
+                <button class="btn btn-align-text-center"></button>
+                <button class="btn btn-align-text-right"></button>
+            </div>
+            <div>
+                <select class="select-font-container" id="font-family" onchange="onSetFontFamily(event.target.value)" name="font-family">
+                    <option value="impact">Impact</option>
+                    <option value="arial">Arial</option>
+                </select>
+                <button class="btn btn-choose-stroke-clr"></button>
+                <button class="btn btn-choose-fill-clr"></button>
+            </div>
             <!-- delet line and add line btn? -->
-            <button class="btn-download"></button>
-            <button class="btn-share"></button>
+            <div>
+                <button class="btn-share">Share</button>
+                <button class="btn-download" onclick="">Download</button>
+
+            </div>
 
         </div>
-
-
     </section>
     
-
-
-
     <footer class="footer-container full">
         <img src="/img/LOGO/Layer_2.png">
         <p>All rights reserved 2023</p>
     </footer>
     
-
-
-
-
-
-
-
-
-
-    <!-- <script src="js/main.js"></script> -->
+    <script src="js/util.service.js"></script>
+    <script src="js/meme.service.js"></script>
+    <script src="js/meme.controller.js"></script>
+    <!-- <script src="js/gallery.service.js"></script> -->
+    <!-- <script src="js/gallery.controller.js"></script> -->
 </body>
 
 </html>
