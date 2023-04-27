@@ -16,10 +16,16 @@ function onInit() {
 }
 
 function renderMeme() {
-    const selectedId = gMeme.selectedImgId
-    // console.log('selectedId:', selectedId)
-    let selectedImg = getImgById(selectedId)
-    console.log('selectedImg:', selectedImg)
+    const selectedId = getSelectedImageId()
+    const selectedImg = getImgById(selectedId)
+
+    const selectedLineIdx = getSelectedLineIdx()
+    const selectedLine = gMeme.lines[selectedLineIdx]
+
+    //data for rect pos:
+    const y = selectedLine.position.y
+    console.log('y:', y)
+
     const elImg = new Image() // Create a new html img element
     elImg.src = selectedImg.url // Send a network req to get that image, define the img src
     // console.log('elImg:', elImg)
@@ -29,12 +35,20 @@ function renderMeme() {
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         drawText(currTextFromLine, 250, 50)
-        // drawText(gMeme.lines[0].txt, 250, 50)
+        drawRect(40, y-25, 420, selectedLine.size+10) //change it to be dynamicly
     }
-
-
     // resizeCanvas()
     // window.addEventListener('resize', resizeCanvas)
+}
+
+function drawRect(x, y, width, height) {
+    // using the built in .fillRect() and .strokeRect() methods to directly
+    // paint on the canvas, without using a path
+    gCtx.strokeStyle = 'white'
+    gCtx.strokeRect(x, y, width, height)
+    // gCtx.globalAlpha = 0.4
+    // gCtx.fillStyle = 'white'
+    // gCtx.fillRect(x, y, width, height)
 }
 
 function onSetText(elText) {
@@ -53,38 +67,65 @@ function onSetText(elText) {
 }
 
 function drawText(text, x, y) {
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'white'
-    gCtx.fillStyle = 'white'
-    gCtx.font = '40px Arial'
-    gCtx.textAlign = 'center'
-    gCtx.textBaseline = 'middle'
-
-    gCtx.fillText(text, x, y) // Draws (fills) a given text at the given (x, y) position.
-    gCtx.strokeText(text, x, y) // Draws (strokes) a given text at the given (x, y) position.  
+    // const lineIndex = getSelectedLineIdx()
+    // console.log('lineIndex:', lineIndex)
+    const memeLines = gMeme.lines
+    console.log('memeLines:', memeLines)
+    memeLines.forEach((line) => {
+        gCtx.lineWidth = 2
+        gCtx.strokeStyle = line.strokColor
+        gCtx.fillStyle = line.color
+        gCtx.font = line.size+'px ' + line.fontFamily
+        gCtx.textAlign = 'center'
+        gCtx.textBaseline = 'middle'
+        gCtx.fillText(line.txt, x, line.position.y) // Draws (fills) a given text at the given (x, y) position.
+        gCtx.strokeText(line.txt, x, line.position.y) // Draws (strokes) a given text at the given (x, y) position.  
+    })  
 }
 
 
 
-// function setShape(shape) {
-//     gCurrText = 'text'
+function onSetFillClr(fillColor) {
+    // console.log('fillColor:',fillColor)
+    setFillColor(fillColor)
+}
+
+function onSetStrokeClr(strokColor) {
+    console.log('strokColor:',strokColor)
+    setStrokColor(strokColor)
+}
+
+function onIncreaseFontSize(){
+    increaseFontSize()
+}
+
+function onDecreaseFontSize(){
+    decreaseFontSize()
+}
+
+function onSwitchLine(){
+    setSwitchLine()
+    renderMeme()
+}
+
+
+
+
+// function draw(event) {
+//     // const offsetX = ev.offsetX
+//     // const offsetY = ev.offsetY
+//     const { offsetX, offsetY } = event
+//     console.log(' offsetX, offsetY', offsetX, offsetY)
+
+//     switch (gCurrText) {
+//         case 'text':
+//             drawText('Hello', offsetX, offsetY)
+//             break
+//         case 'emoji':
+//             drawLine(offsetX, offsetY)
+//             break
+//     }
 // }
-
-function draw(event) {
-    // const offsetX = ev.offsetX
-    // const offsetY = ev.offsetY
-    const { offsetX, offsetY } = event
-    console.log(' offsetX, offsetY', offsetX, offsetY)
-
-    switch (gCurrText) {
-        case 'text':
-            drawText('Hello', offsetX, offsetY)
-            break
-        case 'emoji':
-            drawLine(offsetX, offsetY)
-            break
-    }
-}
 
 
 function resizeCanvas() {

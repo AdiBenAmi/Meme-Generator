@@ -1,11 +1,7 @@
 'use strict'
-
-
 let gMeme= _createMeme()
-// console.log('gMeme:', gMeme)
+console.log('gMeme:', gMeme)
 
-// let gMemes
-// _createMemes()
 
 function getMeme() {
     return gMeme
@@ -17,6 +13,38 @@ function setImg(imageId) {
     // console.log('gMeme:', gMeme)   
 }
 
+function getSelectedImageId(){
+    return gMeme.selectedImgId
+}
+
+function setFillColor(fillColor) {
+    const lineIndex = gMeme.selectedLineIdx
+    // console.log('lineIndex:', lineIndex)
+    gMeme.lines[lineIndex].color = fillColor
+    // console.log('gMeme:', gMeme)
+}
+
+function setStrokColor(strokClr){
+    // console.log('strokClr:',strokClr )
+    const lineIndex = gMeme.selectedLineIdx
+    // console.log('lineIndex:', lineIndex)
+    gMeme.lines[lineIndex].strokColor = strokClr
+}
+
+function increaseFontSize(){
+    const lineIndex = gMeme.selectedLineIdx
+    if (gMeme.lines[lineIndex].size === 50) return
+    gMeme.lines[lineIndex].size += 5 
+    console.log('gMeme:', gMeme)
+}
+
+function decreaseFontSize(){
+    const lineIndex = gMeme.selectedLineIdx
+    if (gMeme.lines[lineIndex].size === 0) return
+    gMeme.lines[lineIndex].size -= 5 
+    console.log('gMeme:', gMeme)
+}
+
 function setLineTxt(){
     //update the text from selected line index
     let text = gMeme.lines[getSelectedLineIdx()].txt
@@ -25,26 +53,44 @@ function setLineTxt(){
 }
 
 function getSelectedLineIdx() {
+    // console.log('gMeme.selectedLineIdx:', gMeme.selectedLineIdx)
     return gMeme.selectedLineIdx
 }
 
-// function _createMemes() {
-//     gMemes = _createMeme(1, 10, 'whats up')
-//     // console.log('gMemes:', gMemes)
-//     return gMemes
-// }
+function setSwitchLine() {
+    let selectedLine = getSelectedLineIdx()
+    console.log('selectedLine:', selectedLine)
+    if (!selectedLine) {
+        gMeme.selectedLineIdx = 1
+    } else {
+        gMeme.selectedLineIdx = 0
+    }
+    console.log('gMeme.selectedLineIdx:', gMeme.selectedLineIdx)
+}
 
-function _createMeme(selectedImgId='', selectedLineIdx = 0, txt = '', size = 20, align= 'center', color='white') {
+
+
+function _createMeme(selectedImgId='', selectedLineIdx = 0, txt = 'write your text here', size = 40, align= 'center', color='white', strokColor='black', fontFamily='impact') {
     return { 
         selectedImgId, 
         selectedLineIdx, 
         lines: [ 
-            {   txt, 
+            {   txt: 'write your text here', 
                 size, 
                 align, 
-                color 
+                color,
+                strokColor: 'black',
+                fontFamily,
+                position: {x: 250, y: 50}, 
+            }, 
+            {   txt: 'write more text here', 
+                size, 
+                align, 
+                color,
+                strokColor: 'black',
+                fontFamily,
+                position: {x: 250, y: 450}, 
             } 
         ] 
-    }
-    
+    }  
 }

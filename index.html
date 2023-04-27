@@ -61,13 +61,13 @@
         <div class="editor-container">
             <input oninput="onSetText(this)" data-trans="text" class="text-user-input" type="text" name="text" placeholder="Enter search keyword" oninput="onSetText(this)">
             <div>
-                <button class="btn btn-switch-lines"></button>
+                <button onclick="onSwitchLine()" class="btn btn-switch-lines"></button>
                 <button class="btn btn-add-line"></i></i></button>
                 <button class=" btn btn-clear-canvas" onclick="clearCanvas()"></button>
             </div>
             <div>
-                <button class="btn btn-increase-font-size"></button>
-                <button class="btn btn-decrease-font-size"></button>
+                <button onclick="onIncreaseFontSize()" value="20" class="btn btn-increase-font-size"></button>
+                <button onclick="onDecreaseFontSize()" value="20" class="btn btn-decrease-font-size"></button>
                 <button class="btn btn-align-text-left"></button>
                 <button class="btn btn-align-text-center"></button>
                 <button class="btn btn-align-text-right"></button>
@@ -77,8 +77,14 @@
                     <option value="impact">Impact</option>
                     <option value="arial">Arial</option>
                 </select>
-                <button class="btn btn-choose-stroke-clr"></button>
-                <button class="btn btn-choose-fill-clr"></button>
+                <button class="btn btn-choose-stroke-clr">
+                    <input class="color-picker-default" type="color"  id="strok-color" value="#000000" oninput="onSetStrokeClr(this.value)">
+                </button>
+
+
+                <button for="fill-color" class="btn btn-choose-fill-clr">
+                    <input class="color-picker-default" type="color" id="fill-color" name="color" value="#ff0000" oninput="onSetFillClr(this.value)"/>                
+                </button>
             </div>
             <!-- delet line and add line btn? -->
             <div>

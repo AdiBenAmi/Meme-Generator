@@ -19,8 +19,6 @@
     border: 1px solid var(--clr-1);
 
     align-self: flex-end;
-
-
 }
 
 .btn-switch-lines {
@@ -63,7 +61,8 @@
     background: url(/img/btn-img/paint-board-and-brush.png) no-repeat;
 }
 
-.btn {
+.btn,
+.color-picker-default{
     height: 60px;
     width: 60px;
     background-color: var(--clr-3);
@@ -71,7 +70,15 @@
     border: 2px solid var(--clr-1);
     background-position: center;
     margin-inline: 3px;
+
+    transition: transform .1s, box-shadow .3s;
 } 
+
+.btn:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px 3px var(--clr-3);
+    transform: scale(1.05);
+}
 
 .btn-download,
 .btn-share {
@@ -84,6 +91,12 @@
     background-color: white;
 }
 
+.btn-download:hover,
+.btn-share:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px 3px var(--clr-3);
+}
+
 .select-font-container {
     font-family: montserrat;
     font-size: 1.25rem; 
@@ -93,4 +106,6 @@
     border: 1px solid var(--clr-1);
 }
 
-
+.color-picker-default {
+    opacity: 0;
+}
