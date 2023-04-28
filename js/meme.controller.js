@@ -148,12 +148,7 @@ function onDownloadCanvas(elLink) {
     gMeme.isDownload = true    
     renderMeme()
     
-    if (gMeme.isDownload){
-
-        downloadCanvas(elLink) 
-    }  
-
-    // gMeme.isDownload = false 
+    downloadCanvas(elLink) 
 }
 
 
