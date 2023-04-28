@@ -6,7 +6,7 @@ function renderGallery() {
     // console.log('images:', images)
     //render gallery with 2 img
     strHTML = images.map((image) => 
-    `<img onclick=onImgSelect('${image.id}') src="/img/meme-imgs (square)/${image.id}.jpg">`
+    `<img onclick=onImgSelect('${image.id}') src="img/meme-imgs (square)/${image.id}.jpg">`
     ).join('')
 
     const elImgGalleryContainer = document.querySelector('.img-grid-container')

@@ -127,8 +127,7 @@ function downloadCanvas(elLink){
          elLink.href = data // Put it on the link
          elLink.download = 'my-meme' // Can change the name of the file
 
-         // gMeme.isDownload = false 
-
+         gMeme.isDownload = false 
 }
 
 

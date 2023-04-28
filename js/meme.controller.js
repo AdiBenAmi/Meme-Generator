@@ -147,7 +147,6 @@ function onDownloadCanvas(elLink) {
     //hide rect from canvas
     gMeme.isDownload = true    
     renderMeme()
-    
     downloadCanvas(elLink) 
 }
 
