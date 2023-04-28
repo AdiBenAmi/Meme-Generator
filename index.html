@@ -17,8 +17,8 @@
             </div>
             <nav class="main-nav">
                 <ul class="main-nav-menu flex clean-list">
-                    <li><a class="active">Gallery</a></li>
-                    <li><a>About</a></li>
+                    <li><a class="galleryLinkTab" onclick=onGalleryLink()>Gallery</a></li>
+                    <li><a class="aboutLinkTab">About</a></li>
                 </ul>
             </nav>
         </section>
@@ -62,15 +62,15 @@
             <input oninput="onSetText(this)" data-trans="text" class="text-user-input" type="text" name="text" placeholder="Enter search keyword" oninput="onSetText(this)">
             <div>
                 <button onclick="onSwitchLine()" class="btn btn-switch-lines"></button>
-                <button class="btn btn-add-line"></i></i></button>
-                <button class=" btn btn-clear-canvas" onclick="clearCanvas()"></button>
+                <button class="btn btn-add-line" onclick="onAddLine()"> </button>
+                <button class="btn btn-delet-line" onclick="onDeleteLine()"> </button>
             </div>
             <div>
                 <button onclick="onIncreaseFontSize()" value="20" class="btn btn-increase-font-size"></button>
                 <button onclick="onDecreaseFontSize()" value="20" class="btn btn-decrease-font-size"></button>
-                <button class="btn btn-align-text-left"></button>
-                <button class="btn btn-align-text-center"></button>
-                <button class="btn btn-align-text-right"></button>
+                <button onclick="onTextAlign(this.value)" value="end" class="btn btn-align-text-left"></button>
+                <button onclick="onTextAlign(this.value)" value="center" class="btn btn-align-text-center"></button>
+                <button onclick="onTextAlign(this.value)" value="start" class="btn btn-align-text-right"></button>
             </div>
             <div>
                 <select class="select-font-container" id="font-family" onchange="onSetFontFamily(event.target.value)" name="font-family">
@@ -88,9 +88,10 @@
             </div>
             <!-- delet line and add line btn? -->
             <div>
-                <button class="btn-share">Share</button>
-                <button class="btn-download" onclick="">Download</button>
-
+                <button class="btn-share">Share</button>                
+                <a href="#" onclick="onDownloadCanvas(this)" download="file-name">
+                    <button class="btn-download">Download</button>
+                </a>
             </div>
 
         </div>

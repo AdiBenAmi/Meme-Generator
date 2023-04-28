@@ -12,30 +12,38 @@ function onInit() {
     gCtx = gElCanvas.getContext('2d')
     // console.log('gCtx', gCtx)
 
-    renderMeme()
+    // renderMeme()
 }
 
 function renderMeme() {
+    console.log('gMeme:', gMeme)
     const selectedId = getSelectedImageId()
     const selectedImg = getImgById(selectedId)
-
+    
     const selectedLineIdx = getSelectedLineIdx()
-    const selectedLine = gMeme.lines[selectedLineIdx]
-
-    //data for rect pos:
-    const y = selectedLine.position.y
-    console.log('y:', y)
-
+    if (selectedLineIdx >=0){
+        var selectedLine = gMeme.lines[selectedLineIdx]
+        //data for pos:
+        var y = selectedLine.position.y
+        var x = selectedLine.position.x
+        // console.log('y:', y)
+        var currTextFromLine = setLineTxt()
+        // console.log('currTextFromLine:',currTextFromLine )
+    }
+   
     const elImg = new Image() // Create a new html img element
     elImg.src = selectedImg.url // Send a network req to get that image, define the img src
     // console.log('elImg:', elImg)
     // When the image ready draw it on the canvas
-    let currTextFromLine = setLineTxt()
-    // console.log('currTextFromLine:',currTextFromLine )
+    
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawText(currTextFromLine, 250, 50)
-        drawRect(40, y-25, 420, selectedLine.size+10) //change it to be dynamicly
+        if (selectedLineIdx >=0) {
+            drawText(currTextFromLine, x, y)
+            if(!gMeme.isDownload){
+                drawRect(x-250, y-25, 500, selectedLine.size+10) //change it to be dynamicly
+            }
+        }
     }
     // resizeCanvas()
     // window.addEventListener('resize', resizeCanvas)
@@ -72,18 +80,21 @@ function drawText(text, x, y) {
     const memeLines = gMeme.lines
     console.log('memeLines:', memeLines)
     memeLines.forEach((line) => {
-        gCtx.lineWidth = 2
+        const textWidth= gCtx.measureText(line.txt)
+        // console.log('textWidth:', textWidth.width)
+        gCtx.lineWidth = 1.5
         gCtx.strokeStyle = line.strokColor
         gCtx.fillStyle = line.color
         gCtx.font = line.size+'px ' + line.fontFamily
-        gCtx.textAlign = 'center'
+        
+        gCtx.textAlign = line.align
+        
         gCtx.textBaseline = 'middle'
-        gCtx.fillText(line.txt, x, line.position.y) // Draws (fills) a given text at the given (x, y) position.
-        gCtx.strokeText(line.txt, x, line.position.y) // Draws (strokes) a given text at the given (x, y) position.  
+        // console.log('line.position.x:',line.position.x)
+        gCtx.fillText(line.txt, x, line.position.y,250) // Draws (fills) a given text at the given (x, y) position.
+        gCtx.strokeText(line.txt, x, line.position.y,250) // Draws (strokes) a given text at the given (x, y) position.  
     })  
 }
-
-
 
 function onSetFillClr(fillColor) {
     // console.log('fillColor:',fillColor)
@@ -97,15 +108,52 @@ function onSetStrokeClr(strokColor) {
 
 function onIncreaseFontSize(){
     increaseFontSize()
+    renderMeme()
 }
 
 function onDecreaseFontSize(){
     decreaseFontSize()
+    renderMeme()
 }
 
 function onSwitchLine(){
     setSwitchLine()
     renderMeme()
+}
+
+function onSetFontFamily(fontFamily){
+    // console.log('fontFamily:',fontFamily )
+    setFontFamilyType(fontFamily)
+    renderMeme()
+}
+
+function onTextAlign(alignDeraction) {
+    console.log('alignDeraction:', alignDeraction)
+    setTextAlignDeraction(alignDeraction)
+    renderMeme()
+}
+
+function onDeleteLine() {
+    deleteLine()
+    renderMeme()
+}
+
+function onAddLine(){
+    addLine()
+    renderMeme()
+}
+
+function onDownloadCanvas(elLink) {
+    //hide rect from canvas
+    gMeme.isDownload = true    
+    renderMeme()
+    
+    if (gMeme.isDownload){
+
+        downloadCanvas(elLink) 
+    }  
+
+    // gMeme.isDownload = false 
 }
 
 
@@ -127,7 +175,6 @@ function onSwitchLine(){
 //     }
 // }
 
-
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     // Note: changing the canvas dimension this way clears the canvas
@@ -135,10 +182,6 @@ function resizeCanvas() {
     // Unless needed, better keep height fixed.
     // gElCanvas.height = elContainer.offsetHeight
 }
-
-
-
-
 
 function clearCanvas() {
     // Sets all pixels in the rectangle defined by starting point (x, y) and size (width, height)
@@ -149,14 +192,3 @@ function clearCanvas() {
     // You may clear part of the canvas
     // gCtx.clearRect(0, 0, gElCanvas.width / 2, gElCanvas.height / 2)
 }
-
-//צריך לשנות בדום שלי את הכפתור של ההורדה לתגית a
-function onDownloadCanvas(elLink) {
-    // Gets the canvas content and convert it to base64 data URL that can be save as an image
-    const data = gElCanvas.toDataURL() // Method returns a data URL containing a representation of the image in the format specified by the type parameter.
-    // console.log('data', data) // Decoded the image to base64
-
-    elLink.href = data // Put it on the link
-    elLink.download = 'my-img' // Can change the name of the file
-}
-
