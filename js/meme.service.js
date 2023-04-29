@@ -57,6 +57,13 @@ function setTextAlignDeraction(alignDeraction){
     // console.log('alignDeraction:', alignDeraction)
     const lineIndex = gMeme.selectedLineIdx
     gMeme.lines[lineIndex].align = alignDeraction
+    if (alignDeraction === 'start') {
+        gMeme.lines[lineIndex].position.x = 5
+    } else if (alignDeraction === 'center') {
+        gMeme.lines[lineIndex].position.x = gElCanvas.width/2
+    } else if (alignDeraction === 'end') {
+        gMeme.lines[lineIndex].position.x = gElCanvas.width -5
+    }
     console.log('gMeme:', gMeme)    
 }
 
