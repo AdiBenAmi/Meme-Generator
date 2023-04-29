@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adi BEN AMI MemeGen</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/2adadbcb34.js" crossorigin="anonymous"></script>
 </head>
 
 <body onload="onInit()" class="main-layout">
-    <header class="main-header main-layout full">
+    <header class="main-header full main-layout">
         <section class="flex space-between align-center">
             <div class="logo">
                 <img src="img/LOGO/Layer_2.png" alt="">
@@ -20,21 +21,20 @@
                     <li><a class="galleryLinkTab" onclick=onGalleryLink()>Gallery</a></li>
                     <li><a class="aboutLinkTab">About</a></li>
                 </ul>
+                <button class="menu-button" onclick="onToggleMenu()">☰</button>
             </nav>
         </section>
     </header>
 
 
-<!-- GALLERY SECTION -->
-    <section class="gallery-section main-layout full ">
+    <!-- GALLERY SECTION -->
+   
+    <section class="gallery-section main-layout full">
         <section class="search-container">
-            <input type="search" placeholder="Enter search keyword">
-            <a>word</a>
-            <a>word</a>
-            <a>word</a>
-            <a>word</a>
-            <a>word</a>
-            <a>word</a>
+            <input class="search-input" type="search" placeholder="Enter search keyword">
+            <ul class="clean-list">
+                <li>word</li>
+            </ul>
         </section>
         <main class="main-img-container full main-layout">
             <div class="img-grid-container">
@@ -42,53 +42,76 @@
                 <img src="/img/meme-imgs (square)/1.jpg"> -->
             </div>
         </main>
-        <aside class="about-container full">
-            <img src="/img/about-img.jpg">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate numquam nobis ut explicabo autem
-                consequatur iste accusamus quo hic. Ducimus voluptatum rerum odit dolores sequi consequatur cumque? Laborum,
-                doloremque voluptate!</p>
+        <aside class="aside-container full main-layout">
+            <section class="aside-container-content flex">
+                <img src="/img/about-img.jpg">
+                <section>
+                    <h1>Adi Ben-Ami</h1>
+                    <p class="about--container">Mom of Geffen and Arbel, a Diettitian and A Fullstack developer to be.
+                        My moto for life is "Love what you do and do what you love"
+                    </p>
+                    <p class="social-links-container">
+                        <a href="https://www.linkedin.com/in/adi-ben-ami-6674b579"><i
+                                class="fa-brands fa-linkedin fa-2xl" style="color: #a7727d;"></i></a>
+                        <a href="https://www.facebook.com/adi.afriat10/"><i class="fa-brands fa-square-facebook fa-2xl"
+                                style="color: #a7727d;"></i></a>
+                        <a href="https://github.com/AdiBenAmi"><i class="fa-brands fa-square-github fa-2xl"
+                                style="color: #a7727d;"></i> </a>
+                    </p>
+                </section>
+            </section>
+
         </aside>
     </section>
 
 
-<!-- EDITOR SECTION -->
-    <section class="main-meme-editor full hide">
-        <div class=""></div>
+    <!-- EDITOR SECTION -->
+    <section class="main-meme-editor full">
         <div class="canvas-container">
-            <canvas width="500" height="500" id="my-canvas" style="background-color: black;" onclick="draw(event)"></canvas>
+            <canvas width="500" height="500" id="my-canvas" style="background-color: black;"
+                onclick="draw(event)"></canvas>
         </div>
 
         <div class="editor-container">
-            <input oninput="onSetText(this)" data-trans="text" class="text-user-input" type="text" name="text" placeholder="Enter search keyword" oninput="onSetText(this)">
-            <div>
+            <input oninput="onSetText(this)" data-trans="text" class="text-user-input" type="text" name="text"
+                placeholder="Enter search keyword" oninput="onSetText(this)">
+            <div class="editor-2nd-line">
                 <button onclick="onSwitchLine()" class="btn btn-switch-lines"></button>
                 <button class="btn btn-add-line" onclick="onAddLine()"> </button>
                 <button class="btn btn-delet-line" onclick="onDeleteLine()"> </button>
             </div>
-            <div>
+            <div class="editor-3rd-line">
                 <button onclick="onIncreaseFontSize()" value="20" class="btn btn-increase-font-size"></button>
                 <button onclick="onDecreaseFontSize()" value="20" class="btn btn-decrease-font-size"></button>
                 <button onclick="onTextAlign(this.value)" value="end" class="btn btn-align-text-left"></button>
                 <button onclick="onTextAlign(this.value)" value="center" class="btn btn-align-text-center"></button>
                 <button onclick="onTextAlign(this.value)" value="start" class="btn btn-align-text-right"></button>
             </div>
-            <div>
-                <select class="select-font-container" id="font-family" onchange="onSetFontFamily(event.target.value)" name="font-family">
-                    <option value="impact">Impact</option>
-                    <option value="arial">Arial</option>
-                </select>
+            <div class="editor-4th-line">
+                <div class="select-font-container">
+                    <select  id="font-family"
+                        onchange="onSetFontFamily(event.target.value)" name="font-family">
+                        <option value="impact">Impact</option>
+                        <option value="arial">Arial</option>
+                    </select>
+                </div>
                 <button class="btn btn-choose-stroke-clr">
-                    <input class="color-picker-default" type="color"  id="strok-color" value="#000000" oninput="onSetStrokeClr(this.value)">
+                    <input class="color-picker-default" type="color" id="strok-color" value="#000000"
+                        oninput="onSetStrokeClr(this.value)">
                 </button>
-
-
                 <button for="fill-color" class="btn btn-choose-fill-clr">
-                    <input class="color-picker-default" type="color" id="fill-color" name="color" value="#ff0000" oninput="onSetFillClr(this.value)"/>                
+                    <input class="color-picker-default" type="color" id="fill-color" name="color" value="#ff0000"
+                        oninput="onSetFillClr(this.value)" />
                 </button>
             </div>
-            <!-- delet line and add line btn? -->
-            <div>
-                <button class="btn-share">Share</button>                
+            <div class="main-emoji-section">
+                <button class="prev" onclick="onChangeImoji(-1)">Prev</button>
+                <div class="imoji-container">
+                </div>
+                <button class="next" onclick="onChangeImoji(1)">Next</button>
+            </div>
+            <div class="editor-5th-line">
+                <button class="btn-share" onclick="onUploadImg()">Share</button>
                 <a href="#" onclick="onDownloadCanvas(this)" download="file-name">
                     <button class="btn-download">Download</button>
                 </a>
@@ -96,17 +119,19 @@
 
         </div>
     </section>
-    
-    <footer class="footer-container full">
+
+    <footer class="footer-container full main-layout">
         <img src="img/LOGO/Layer_2.png">
         <p>All rights reserved 2023</p>
     </footer>
-    
+
+    <script src="js/site.controller.js"></script>
     <script src="js/util.service.js"></script>
     <script src="js/gallery.service.js"></script>
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.service.js"></script>
     <script src="js/meme.controller.js"></script>
+    <script src="js/share.controller.js"></script>
 </body>
 
 </html>

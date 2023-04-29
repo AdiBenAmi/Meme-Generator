@@ -1,9 +1,32 @@
-.about-container {
+.aside-container {
     background-color: var(--clr-2);
+    display: grid;
 }
 
-.about-container img{
+.aside-container img{
     border-radius: 50%;
-    width: 322px;
-    margin-block: 78px 167px;
+    width: 20em;
+    height: 20em;
+    /* margin-block: 78px 167px; */
 }
+
+
+.aside-container-content {
+    gap: 2em;
+    margin-block: 4em;
+}
+
+.aside-container-content h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-block: 4em 0;
+}
+
+.aside-container-content p {
+    margin-block: 0.5em 2em;
+}
+
+.social-links-container {
+    margin-block-start: 10em;
+}
+

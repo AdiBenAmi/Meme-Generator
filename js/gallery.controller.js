@@ -12,6 +12,8 @@ function renderGallery() {
     const elImgGalleryContainer = document.querySelector('.img-grid-container')
     // console.log('elImgGalleryContainer:', elImgGalleryContainer)
     elImgGalleryContainer.innerHTML = strHTML
+
+
 }
 
 function onImgSelect(imageId) {
@@ -22,6 +24,21 @@ function onImgSelect(imageId) {
     //hide and show 
     const elMainEditor = document.querySelector('.main-meme-editor')
     elMainEditor.classList.remove('hide')
+
+
+    /****************************************************** */
+    // const mediaQuery = window.matchMedia('(min-width: 1027px)');
+    // const elMainEditor = document.querySelector('.main-meme-editor')
+    // const myDiv = document.getElementById('my-div');
+    
+    // if (mediaQuery.matches) {
+    //     elMainEditor.style.display = 'block'; // or 'flex', 'grid', etc.
+    // }
+    /***************************************************** */
+
+
+
+
     const elGallery = document.querySelector('.gallery-section')
     elGallery.classList.add('hide')
 

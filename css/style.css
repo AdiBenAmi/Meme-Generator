@@ -9,12 +9,12 @@
 
 /* COMPONENTS */
 @import 'components/header.css';
-/* @import 'components/logo.css';  */
-@import 'components/main.css';
+@import 'components/gallery-search-bar.css'; 
+@import 'components/img-gallery.css';
 @import 'components/main-meme-editor.css';
 @import 'components/aside.css'; 
 @import 'components/footer.css'; 
 /*@import 'components/screen.css';   */
 
 /* MEDIA QUERIS */
-/* @import 'setup/mq.css'; */
+@import 'setup/mq.css';

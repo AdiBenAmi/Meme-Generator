@@ -11,14 +11,14 @@
  /* Layout */
  --site-width: 1102px;
  --l: 1102px;
- /* --m: 860px; */
- /* --s: 600px; */
+ --m: 551px;
+ --s: 640px; /*1fr*/
  --layout-padding: 49px;
 
 /*Card layout*/
-/* --card-layout: 1fr 1fr; */
-/* --card-in-l: 1fr 1fr; */
-/* --card-in-m: 1fr 1fr; */
-/* --card-in-s: 1fr; */
-/* --card-in-mobile: 1fr;  */
+/* --editor-width: 551px;
+--editor-in-l: 551px;
+--editor-in-m: 551px;
+--editor-in-s: 1fr; */
+/* --editor-in-mobile: 1fr;  */
 }

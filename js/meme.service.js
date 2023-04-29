@@ -1,6 +1,6 @@
 'use strict'
 let gMeme= _createMeme()
-console.log('gMeme:', gMeme)
+// console.log('gMeme:', gMeme)
 
 
 function getMeme() {
@@ -120,6 +120,24 @@ function addLine(txt='meme text', fontFamily='impact',color='white'){
     console.log('gMeme.selectedLineIdx:', gMeme.selectedLineIdx)
 }
 
+
+function addSticker(txt='', fontFamily='impact',color='white'){
+    console.log('hello')
+    const newLine = {   
+        txt, 
+        size: 40, 
+        align:'center', 
+        color,
+        strokColor: 'black',
+        fontFamily,
+        position: {x: gElCanvas.width/2, y: gElCanvas.height/2}, 
+    }
+    gMeme.lines.push(newLine)
+    // console.log('gMeme:', gMeme)
+    gMeme.selectedLineIdx = gMeme.lines.length-1
+    console.log('gMeme.selectedLineIdx:', gMeme.selectedLineIdx)
+}
+
 function downloadCanvas(elLink){
          // Gets the canvas content and convert it to base64 data URL that can be save as an image
          const data = gElCanvas.toDataURL() // Method returns a data URL containing a representation of the image in the format specified by the type parameter.
@@ -155,4 +173,14 @@ function _createMeme(selectedImgId='',isDownload=false, selectedLineIdx = 0, txt
             } 
         ] 
     }  
+}
+//  STICKERS
+
+function getStickers(gStickerIdx,gStickersToShow) {
+// console.log('gStickers:', gStickers)
+// console.log('gStickersToShow:', gStickersToShow)
+    const stickers = gStickers.slice(gStickerIdx, gStickersToShow)
+    // console.log('stickers:', stickers)
+    
+    return stickers
 }

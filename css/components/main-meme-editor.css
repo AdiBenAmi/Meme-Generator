@@ -1,24 +1,53 @@
-.main-meme-editor {
-    gap: 40px;
-    background-color: var(--clr0);
 
+.main-meme-editor {
+    gap: 20px;
+    background-color: var(--clr0);
+    /* height: 63vh; */
+    padding-block: 2em;
+    justify-content: center;
 }
+
+.canvas-container{ 
+    width: 100%;
+    height: 100%;
+} 
 
 .editor-container {
     background-color: var(--clr0);
-    
-    /* padding-block: 20px; */
 }
 
 .text-user-input {
     font-family: montserrat;
     font-size: 1.25rem; /*20px*/
     padding-block: 0.5em;
-    height: 50px;
+    height: 2.5em;
+    width: 17em;
+    /* margin-inline: 5em; */
     border-radius: 12px;
     border: 1px solid var(--clr-1);
 
     align-self: flex-end;
+    justify-self: center;
+}
+
+.editor-2nd-line {
+    justify-self: center;
+    
+}
+
+.editor-3rd-line {
+    justify-self: center;
+    align-self: flex-end;
+}
+
+.editor-4th-line {
+    display: grid;
+    grid-auto-flow: column;
+    justify-self: center;
+}
+
+.editor-5th-line{
+    justify-self: center;
 }
 
 .btn-switch-lines {
@@ -84,8 +113,8 @@
 .btn-share {
     font-family: montserrat;
     font-size: 1.25rem; /*20px*/
-    padding: 6px 6px;
-    width: 150px;
+    padding: 6px 10px;
+    width: 8.5em;
     border-radius: 12px;
     border: 1px solid var(--clr-1);
     background-color: white;
@@ -97,15 +126,47 @@
     box-shadow: 0 0 5px 3px var(--clr-3);
 }
 
-.select-font-container {
+.select-font-container select{
     font-family: montserrat;
     font-size: 1.25rem; 
-    padding: 0.5em 1em;
-    width: 180px;
+    padding: 0.5em 1.25em;
+    width: 10em;
+    height: 2.8em;
     border-radius: 12px;
     border: 1px solid var(--clr-1);
 }
 
 .color-picker-default {
     opacity: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* STICKER CONTAINER */
+
+.main-emoji-section{
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+}
+.imoji-container {
+    background-color: var(--clr-3);
+    border-radius: 20px;
+}
+.imoji-container a{
+    font-size: 2.5em;  
+    margin-inline: 0.13em;
+}
+
+.imoji-container a:hover{
+    cursor: pointer;
+}
+
+.main-emoji-section button {
+    background-color: var(--clr-3);
+    border: none;
+    font-family: montserrat;
+    font-size: 1rem;
+    border-radius: 12px;
 }

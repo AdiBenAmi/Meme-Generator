@@ -2,21 +2,70 @@
 let gElCanvas
 let gCtx
 let gCurrText = 'text'
-
-
+const gStickers = ['😇', '😎' , '😍', '😘', '🥰', '⭐', '🌻', '🎁', '🥸', ' ❤️', '😊', '😋']
+let gStickersToShow = 4
+let gStickerIdx=0
 
 function onInit() {
+    // const elMainEditor = document.querySelector('.main-meme-editor')
+    // elMainEditor.classList.add('hide')
+    
     renderGallery()
-
+    renderStickers(gStickerIdx,gStickersToShow)
+    // console.log(gStickers)
+    
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
-    // console.log('gCtx', gCtx)
-
-    // renderMeme()
+    
+    // window.addEventListener('resize', resizeCanvas)
+    // resizeCanvas()
 }
 
-function renderMeme() {
-    console.log('gMeme:', gMeme)
+function renderStickers(gStickerIdx,gStickersToShow){
+    let strHTML
+   
+    const stickers = getStickers(gStickerIdx, gStickersToShow)
+    console.log('stickers:', stickers)
+
+    strHTML = stickers.map((sticker) => 
+    `<a onclick="onAddSticker(this)" value="${sticker}">${sticker}</a>`).join('')
+
+    const elEmojiContainer = document.querySelector('.imoji-container')
+    elEmojiContainer.innerHTML= strHTML
+}
+
+function onChangeImoji(num){
+    // console.log('gStickers.length:',gStickers.length )
+
+    if (gStickerIdx<0){
+        gStickerIdx=8
+        gStickersToShow = 12
+    }
+    if (gStickerIdx===gStickers.length-4) {
+        gStickerIdx = -1
+        gStickersToShow = 3
+    }
+    // console.log('num:', num)
+    gStickerIdx+= num
+    gStickersToShow+=num
+    console.log('gStickerIdx:', gStickerIdx) //1
+    console.log('gStickersToShow:', gStickersToShow)
+    
+    // getStickers(gStickerIdx, gStickersToShow)
+    renderStickers(gStickerIdx,gStickersToShow)
+}
+
+function onAddSticker(elSticker) {
+    const emoji = elSticker.innerHTML
+    console.log('emoji:', emoji)
+
+    addSticker(emoji)
+    renderMeme()
+}
+
+
+function renderMeme(elLink) {
+    // console.log('gMeme:', gMeme)
     const selectedId = getSelectedImageId()
     const selectedImg = getImgById(selectedId)
     
@@ -43,10 +92,12 @@ function renderMeme() {
             if(!gMeme.isDownload){
                 drawRect(x-250, y-25, 500, selectedLine.size+10) //change it to be dynamicly
             }
+            if(gMeme.isDownload){
+                downloadCanvas(elLink)
+            }
         }
     }
-    // resizeCanvas()
-    // window.addEventListener('resize', resizeCanvas)
+   
 }
 
 function drawRect(x, y, width, height) {
@@ -143,15 +194,13 @@ function onAddLine(){
     renderMeme()
 }
 
+// function 
+
 function onDownloadCanvas(elLink) {
     //hide rect from canvas
     gMeme.isDownload = true    
-    renderMeme()
-    downloadCanvas(elLink) 
+    renderMeme(elLink)
 }
-
-
-
 
 // function draw(event) {
 //     // const offsetX = ev.offsetX
