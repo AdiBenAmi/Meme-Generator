@@ -67,16 +67,6 @@ function setTextAlignDeraction(alignDeraction){
     console.log('gMeme:', gMeme)    
 }
 
-// function setAlign(align) {
-//     if (gMeme.selectedLineIdx < 0) return;
-//     getSelectedLine().align = align;
-//     let x;
-//     if (align === 'start') x = 10;
-//     else if (align === 'center') x = gCanvas.width / 2;
-//     else if (align === 'end') x = gCanvas.width - 10;
-//     getSelectedLine().pos.x = x;
-//  }
-
 function setLineTxt(){
     //update the text from selected line index
     let text = gMeme.lines[getSelectedLineIdx()].txt

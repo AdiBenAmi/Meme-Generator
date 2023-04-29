@@ -63,7 +63,6 @@ function onAddSticker(elSticker) {
     renderMeme()
 }
 
-
 function renderMeme(elLink) {
     // console.log('gMeme:', gMeme)
     const selectedId = getSelectedImageId()
@@ -194,12 +193,21 @@ function onAddLine(){
     renderMeme()
 }
 
-// function 
-
 function onDownloadCanvas(elLink) {
     //hide rect from canvas
     gMeme.isDownload = true    
     renderMeme(elLink)
+}
+
+
+
+//not working in my code
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas-container')
+    // Note: changing the canvas dimension this way clears the canvas
+    gElCanvas.width = elContainer.offsetWidth
+    // Unless needed, better keep height fixed.
+    // gElCanvas.height = elContainer.offsetHeight
 }
 
 // function draw(event) {
@@ -217,21 +225,3 @@ function onDownloadCanvas(elLink) {
 //             break
 //     }
 // }
-
-function resizeCanvas() {
-    const elContainer = document.querySelector('.canvas-container')
-    // Note: changing the canvas dimension this way clears the canvas
-    gElCanvas.width = elContainer.offsetWidth
-    // Unless needed, better keep height fixed.
-    // gElCanvas.height = elContainer.offsetHeight
-}
-
-function clearCanvas() {
-    // Sets all pixels in the rectangle defined by starting point (x, y) and size (width, height)
-    // to transparent black, erasing any previously drawn content.
-    
-    //clears all canvas including img
-    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
-    // You may clear part of the canvas
-    // gCtx.clearRect(0, 0, gElCanvas.width / 2, gElCanvas.height / 2)
-}
