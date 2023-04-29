@@ -51,43 +51,43 @@
 }
 
 .btn-switch-lines {
-    background: url('/img/btn-img/up-and-down.png') no-repeat; 
+    background: url('../../img/btn-img/up-and-down.png') no-repeat; 
 }
 
 .btn-add-line {
-    background: url('/img/btn-img/add.png') no-repeat; 
+    background: url('../../img/btn-img/add.png') no-repeat; 
 }
 
 .btn-delet-line {
-    background: url('/img/btn-img/trash.png') no-repeat;
+    background: url('../../img/btn-img/trash.png') no-repeat;
 }
 
 .btn-increase-font-size {
-    background: url('/img/btn-img/increase font.png') no-repeat;
+    background: url('../../img/btn-img/increase font.png') no-repeat;
 }
 
 .btn-decrease-font-size {
-    background: url('/img/btn-img/decrease font.png') no-repeat;
+    background: url('../../img/btn-img/decrease font.png') no-repeat;
 }
 
 .btn-align-text-left {
-    background: url('/img/btn-img/align-to-left.png') no-repeat;
+    background: url('../../img/btn-img/align-to-left.png') no-repeat;
 }
 
 .btn-align-text-center {
-    background: url('/img/btn-img/center-text.png') no-repeat;
+    background: url('../../img/btn-img/center-text.png') no-repeat;
 }
 
 .btn-align-text-right {
-    background: url('/img/btn-img/align-to-right.png') no-repeat;
+    background: url('../../img/btn-img/align-to-right.png') no-repeat;
 }
 
 .btn-choose-stroke-clr {
-    background: url('/img/btn-img/text stroke.png') no-repeat;
+    background: url('../../img/btn-img/text stroke.png') no-repeat;
 }
 
 .btn-choose-fill-clr {
-    background: url('/img/btn-img/paint-board.png') no-repeat;
+    background: url('../../img/btn-img/paint-board.png') no-repeat;
 }
 
 .btn,
