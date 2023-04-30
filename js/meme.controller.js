@@ -67,7 +67,9 @@ function renderMeme(elLink) {
     // console.log('gMeme:', gMeme)
     const selectedId = getSelectedImageId()
     const selectedImg = getImgById(selectedId)
-    
+    console.log('selectedImg:', selectedImg)
+    console.log('selectedImgurl:', selectedImg.url)
+
     const selectedLineIdx = getSelectedLineIdx()
     if (selectedLineIdx >=0){
         var selectedLine = gMeme.lines[selectedLineIdx]
@@ -80,7 +82,7 @@ function renderMeme(elLink) {
     }
    
     const elImg = new Image() // Create a new html img element
-    elImg.src = selectedImg.url // Send a network req to get that image, define the img src
+    elImg.src = `../img/meme-imgs (square)/${selectedId}.jpg` // Send a network req to get that image, define the img src
     // console.log('elImg:', elImg)
     // When the image ready draw it on the canvas
     
