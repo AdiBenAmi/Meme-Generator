@@ -64,7 +64,7 @@ function setTextAlignDeraction(alignDeraction){
     } else if (alignDeraction === 'end') {
         gMeme.lines[lineIndex].position.x = gElCanvas.width -5
     }
-    console.log('gMeme:', gMeme)    
+    // console.log('gMeme:', gMeme)    
 }
 
 function setLineTxt(){
@@ -81,14 +81,14 @@ function getSelectedLineIdx() {
 
 function setSwitchLine() {
     const selectedLine = getSelectedLineIdx()
-    console.log('selectedLine:', selectedLine)
-    console.log('gMeme.selectedLineIdx.length:', gMeme.selectedLineIdx.length)
+    // console.log('selectedLine:', selectedLine)
+    // console.log('gMeme.selectedLineIdx.length:', gMeme.selectedLineIdx.length)
     if (selectedLine === gMeme.lines.length-1) { //0
         gMeme.selectedLineIdx = 0
     } else if (selectedLine < gMeme.lines.length-1){
         gMeme.selectedLineIdx++
     }
-    console.log('gMeme.selectedLineIdx:', gMeme.selectedLineIdx)
+    // console.log('gMeme.selectedLineIdx:', gMeme.selectedLineIdx)
 }
 
 function deleteLine(){
@@ -114,7 +114,7 @@ function addLine(txt='meme text', fontFamily='impact',color='white'){
     gMeme.lines.push(newLine)
     // console.log('gMeme:', gMeme)
     gMeme.selectedLineIdx = gMeme.lines.length-1
-    console.log('gMeme.selectedLineIdx:', gMeme.selectedLineIdx)
+    // console.log('gMeme.selectedLineIdx:', gMeme.selectedLineIdx)
 }
 
 

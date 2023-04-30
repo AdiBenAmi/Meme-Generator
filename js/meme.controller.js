@@ -6,13 +6,9 @@ const gStickers = ['😇', '😎' , '😍', '😘', '🥰', '⭐', '🌻', '🎁
 let gStickersToShow = 4
 let gStickerIdx=0
 
-function onInit() {
-    // const elMainEditor = document.querySelector('.main-meme-editor')
-    // elMainEditor.classList.add('hide')
-    
+function onInit() {    
     renderGallery()
     renderStickers(gStickerIdx,gStickersToShow)
-    // console.log(gStickers)
     
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
@@ -90,7 +86,7 @@ function renderMeme(elLink) {
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         if (selectedLineIdx >=0) {
-            drawText(currTextFromLine, x, y)
+            drawText(currTextFromLine, x, y) //change it 
             if(!gMeme.isDownload){
                 drawRect(x-250, y-25, 500, selectedLine.size+10) //change it to be dynamicly
             }
@@ -139,13 +135,11 @@ function drawText(text, x, y) {
         gCtx.strokeStyle = line.strokColor
         gCtx.fillStyle = line.color
         gCtx.font = line.size+'px ' + line.fontFamily
-        
         gCtx.textAlign = line.align
-        
         gCtx.textBaseline = 'middle'
         // console.log('line.position.x:',line.position.x)
-        gCtx.fillText(line.txt, x, line.position.y,250) // Draws (fills) a given text at the given (x, y) position.
-        gCtx.strokeText(line.txt, x, line.position.y,250) // Draws (strokes) a given text at the given (x, y) position.  
+        gCtx.fillText(line.txt, line.position.x, line.position.y,450) // Draws (fills) a given text at the given (x, y) position.
+        gCtx.strokeText(line.txt, line.position.x, line.position.y,450) // Draws (strokes) a given text at the given (x, y) position.  
     })  
 }
 
