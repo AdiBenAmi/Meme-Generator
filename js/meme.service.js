@@ -7,11 +7,7 @@ function getMeme() {
     return gMeme
 }
 
-function setImg(imageId) {
-    //get the image by index
-    gMeme.selectedImgId = imageId    //+ if i need a number
-    // console.log('gMeme:', gMeme)   
-}
+
 
 function getSelectedImageId(){
     return gMeme.selectedImgId
@@ -117,7 +113,6 @@ function addLine(txt='meme text', fontFamily='impact',color='white'){
     // console.log('gMeme.selectedLineIdx:', gMeme.selectedLineIdx)
 }
 
-
 function addSticker(txt='', fontFamily='impact',color='white'){
     console.log('hello')
     const newLine = {   
@@ -145,7 +140,6 @@ function downloadCanvas(elLink){
          gMeme.isDownload = false 
 }
 
-
 function _createMeme(selectedImgId='',isDownload=false, selectedLineIdx = 0, txt = 'write your text here', size = 40, align= '', color='white', strokColor='black', fontFamily='impact') {
     return { 
         selectedImgId, 
@@ -171,13 +165,10 @@ function _createMeme(selectedImgId='',isDownload=false, selectedLineIdx = 0, txt
         ] 
     }  
 }
-//  STICKERS
 
+//  STICKERS
 function getStickers(gStickerIdx,gStickersToShow) {
-// console.log('gStickers:', gStickers)
-// console.log('gStickersToShow:', gStickersToShow)
     const stickers = gStickers.slice(gStickerIdx, gStickersToShow)
     // console.log('stickers:', stickers)
-    
     return stickers
 }

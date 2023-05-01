@@ -19,9 +19,8 @@ function onInit() {
 
 function renderStickers(gStickerIdx,gStickersToShow){
     let strHTML
-   
     const stickers = getStickers(gStickerIdx, gStickersToShow)
-    console.log('stickers:', stickers)
+    // console.log('stickers:', stickers)
 
     strHTML = stickers.map((sticker) => 
     `<a onclick="onAddSticker(this)" value="${sticker}">${sticker}</a>`).join('')
@@ -32,7 +31,6 @@ function renderStickers(gStickerIdx,gStickersToShow){
 
 function onChangeImoji(num){
     // console.log('gStickers.length:',gStickers.length )
-
     if (gStickerIdx<0){
         gStickerIdx=8
         gStickersToShow = 12
@@ -41,13 +39,9 @@ function onChangeImoji(num){
         gStickerIdx = -1
         gStickersToShow = 3
     }
-    // console.log('num:', num)
     gStickerIdx+= num
     gStickersToShow+=num
-    console.log('gStickerIdx:', gStickerIdx) //1
-    console.log('gStickersToShow:', gStickersToShow)
     
-    // getStickers(gStickerIdx, gStickersToShow)
     renderStickers(gStickerIdx,gStickersToShow)
 }
 
@@ -78,7 +72,7 @@ function renderMeme(elLink) {
     }
    
     const elImg = new Image() // Create a new html img element
-    elImg.src = `../img/meme-imgs (square)/${selectedId}.jpg` // Send a network req to get that image, define the img src
+    elImg.src = `img/meme-squre/${selectedId}.jpg` // Send a network req to get that image, define the img src
     console.log('elImg.src:',elImg.src )
     // console.log('elImg:', elImg)
     // When the image ready draw it on the canvas
